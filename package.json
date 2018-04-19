@@ -1,0 +1,21 @@
+{
+  "name": "meteor-react-poll-app",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.42",
+    "meteor-node-stubs": "^0.3.2"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [
+    "Meteor",
+    "React"
+  ],
+  "author": "Treisy Jimenez Vega",
+  "license": "ISC",
+  "description": ""
+}
