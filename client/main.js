@@ -1,22 +1,50 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import React from 'react';
+import  { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
 
-import './main.html';
+import App from '../imports/ui/App.jsx'
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+let polls = [
+    {
+        _id:1,
+        question: 'What color do you like?',
+        options: [
+            {
+                index: 1,
+                option: 'black',
+                votes: 5
+            },
+            {
+                index: 2,
+                option: 'white',
+                votes: 7
+            }
+        ],
+        totalVotes: 12,
+        author: 'Trey',
+        createdAt: new Date()
+    },
+    {
+        _id:2,
+        question: 'Where do you live?',
+        options: [
+            {
+                index: 1,
+                option: 'Boston',
+                votes: 5
+            },
+            {
+                index: 2,
+                option: 'New York',
+                votes: 10
+            }
+        ],
+        totalVotes: 15,
+        author: 'Astrid',
+        createdAt: new Date()
+    }
+];
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+Meteor.startup(() => {
+   render(<App polls={polls}/>, document.getElementById('render-target'));
 });
