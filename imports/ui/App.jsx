@@ -1,23 +1,22 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Polls from './Polls';
 
 export default class App extends Component {
     render() {
-        polls = this.props.polls.map( function(poll) {
-            return <div key={poll.id}>{poll.question}</div>
-        });
 
         return(
             <div className="main-layout">
                 <header>
                     <h1>Polls</h1>
                 </header>
-                {polls}
+                <Polls polls={this.props.polls}/>
             </div>
         );
     }
 }
 
 
-// App.propType = {
-//     polls: PropTypes.array.isRequired,
-// };
+App.propType = {
+    polls: PropTypes.array.isRequired,
+};
