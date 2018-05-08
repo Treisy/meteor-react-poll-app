@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Polls from './Polls';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
-export default class App extends Component {
+import Polls from './Polls';
+import PollsData from '/imports/api/polls';
+
+export default class App extends TrackerReact(Component) {
+    pollsData() {
+        Meteor.subscribe('polls');
+        return PollsData.find().fetch();
+    }
     render() {
 
         return(
@@ -10,7 +17,7 @@ export default class App extends Component {
                 <header>
                     <h1>Polls</h1>
                 </header>
-                <Polls polls={this.props.polls}/>
+                <Polls polls={this.pollsData()}/>
             </div>
         );
     }

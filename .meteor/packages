@@ -19,3 +19,8 @@ shell-server@0.3.1            # Server-side component of the `meteor shell` comm
 
 stolinski:stylus-multi
 kadira:flow-router
+dburles:factory
+anti:fake
+random
+babrahams:constellation
+ultimatejs:tracker-react
